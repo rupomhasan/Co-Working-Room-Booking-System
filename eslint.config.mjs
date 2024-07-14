@@ -18,11 +18,21 @@ export default [
       },
     },
     plugins: {
-      "@typescript-eslint": tse,
-      prettier,
+      "prettier/prettier": [
+        "error",
+        {
+          singleQuote: true,
+          parser: "flow",
+        },
+      ],
     },
     rules: {
-
+      "prettier/prettier": "error",
+      "no-unused-vars": "warn",
+      "prefer-const": "warn",
+      "no-console": ["warn", { allow: ["warn", "error"] }],
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
     },
   },
 ];
