@@ -1,11 +1,11 @@
 type TRoom = {
-    name: string,
-    roomNo: number,
-    floorNo: number,
-    capacity: number,
-    pricePerSlot: number,
-    amenities: string[],
-    isDeleted?: boolean,
+  name: string;
+  roomNo: number;
+  floorNo: number;
+  capacity: number;
+  pricePerSlot: number;
+  amenities: string[];
+  isDeleted?: boolean;
 };
 
 export default TRoom;

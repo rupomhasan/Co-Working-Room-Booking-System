@@ -2,4 +2,3 @@
 <p>
   This booking system allows a co-working space to electronically book meeting rooms for specific times and durations.
 </p>
-
