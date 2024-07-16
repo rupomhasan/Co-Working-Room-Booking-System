@@ -6,41 +6,35 @@ import { Slot } from "./slot.model";
 import { slotFunction } from "./slot.utils";
 
 const createSlotIntoDB = async (payload: TSlot) => {
+  const { room } = payload;
 
+  const isRoomExist = await Room.findById(room);
 
-    const { room } = payload;
+  if (!isRoomExist)
+    throw new AppError(httpStatus.NOT_FOUND, "Room is not found ");
 
-    const isRoomExist = await Room.findById(room)
+  const slots = slotFunction(payload);
 
-    if (!isRoomExist) throw new AppError(httpStatus.NOT_FOUND, "Room is not found ")
-
-
-    const slots = slotFunction(payload)
-
-    const result = await Slot.create(slots)
-    return result
-
-}
+  const result = await Slot.create(slots);
+  return result;
+};
 
 const getSlots = async (query: Record<string, unknown>) => {
+  const filter: Record<string, unknown> = {};
+  const { roomId, date } = query;
+  if (roomId) {
+    filter.room = roomId;
+  }
+  if (date) {
+    filter.date = date;
+  }
 
-    let filter: Record<string, unknown> = {};
-    const { roomId, date } = query;
-    if (roomId) {
-        filter.room = roomId
-    }
-    if (date) {
-        filter.date = date
-    }
+  const result = await Slot.find(filter).populate("room");
 
-    const result = await Slot.find(filter).populate("room")
-
-    return result.length
-}
-
-
+  return result;
+};
 
 export const slotService = {
-    createSlotIntoDB,
-    getSlots
-}
+  createSlotIntoDB,
+  getSlots,
+};

@@ -4,31 +4,28 @@ import { sendResponse } from "../../Utils/sendResponse";
 import { slotService } from "./slot.service";
 
 const crateSlot = catchAsync(async (req, res) => {
-    const result = await slotService.createSlotIntoDB(req.body);
+  const result = await slotService.createSlotIntoDB(req.body);
 
-    sendResponse(res, {
-        success: true,
-        statusCode: httpStatus.OK,
-        message: "Room added successfully",
-        result,
-    });
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: "Room added successfully",
+    data: result,
+  });
 });
 
 const getSlots = catchAsync(async (req, res) => {
+  const result = await slotService.getSlots(req.query);
 
-    const result = await slotService.getSlots(req.query)
-
-    sendResponse(res, {
-        success: true,
-        statusCode: httpStatus.OK,
-        message: "Available slots retrieved successfully",
-        result,
-    });
-
-})
-
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: "Available slots retrieved successfully",
+    data: result,
+  });
+});
 
 export const slotControllers = {
-    crateSlot,
-    getSlots
-}
+  crateSlot,
+  getSlots,
+};

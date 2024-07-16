@@ -2,7 +2,6 @@ import httpStatus from "http-status";
 import catchAsync from "../../Utils/catchAsync";
 import { sendResponse } from "../../Utils/sendResponse";
 import { roomServices } from "./room.service";
-import { query } from "express";
 
 const crateRoom = catchAsync(async (req, res) => {
   const result = await roomServices.createRoomIntoDB(req.body);
@@ -11,7 +10,7 @@ const crateRoom = catchAsync(async (req, res) => {
     success: true,
     statusCode: httpStatus.OK,
     message: "Room added successfully",
-    result,
+    data: result,
   });
 });
 
@@ -22,7 +21,7 @@ const getAllRooms = catchAsync(async (req, res) => {
     success: true,
     statusCode: httpStatus.OK,
     message: "Rooms retrieved successfully",
-    result,
+    data: result,
   });
 });
 
@@ -34,7 +33,7 @@ const getRoom = catchAsync(async (req, res) => {
     success: true,
     statusCode: httpStatus.OK,
     message: "Room retrieved successfully",
-    result,
+    data: result,
   });
 });
 
@@ -47,7 +46,7 @@ const updateRoom = catchAsync(async (req, res) => {
     success: true,
     statusCode: httpStatus.OK,
     message: "Room updated successfully",
-    result,
+    data: result,
   });
 });
 
@@ -58,7 +57,7 @@ const deleteRoom = catchAsync(async (req, res) => {
     success: true,
     statusCode: httpStatus.OK,
     message: "Room deleted successfully",
-    result,
+    data: result,
   });
 });
 
