@@ -22,7 +22,7 @@ export const slotFunction = (payload: TSlot) => {
   const endMinute = convertMinutes(endTime);
   const numberOfSlot = (endMinute - startMinute) / 60;
 
-  let slots = [];
+  const slots = [];
   let currentEnd = startMinute;
 
   for (let i = 0; i < Math.ceil(numberOfSlot); i++) {
