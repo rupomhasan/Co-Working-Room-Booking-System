@@ -2,8 +2,7 @@ import { Router } from "express";
 import { RoomRoutes } from "../Modules/Room/room.route";
 import { SlotsRoutes } from "../Modules/Slot/slot.route";
 import { AuthRoutes } from "../Modules/Auth/auth.route";
-import { BookingRoutes } from "../Modules/Booking/booking.route";
-import { bookingControllers } from "../Modules/Booking/booking.controller";
+import { BookingRoutes, MyBooking } from "../Modules/Booking/booking.route";
 
 export const router = Router();
 
@@ -26,7 +25,7 @@ const moduleRoutes = [
   },
   {
     path: "/my-bookings",
-    route: bookingControllers.findMyBooking,
+    route: MyBooking,
   },
 ];
 

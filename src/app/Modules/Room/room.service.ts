@@ -3,7 +3,8 @@ import { Room } from "./room.model";
 
 const createRoomIntoDB = async (payload: TRoom) => {
   const { roomNo, floorNo } = payload;
-  const isRoomExist = await Room.find({ floorNo, roomNo });
+  const isRoomExist = await Room.findOne({ floorNo, roomNo });
+  console.log("isRoomExist :", isRoomExist);
 
   if (isRoomExist)
     throw Error("Room already exist with this floor number and room number");

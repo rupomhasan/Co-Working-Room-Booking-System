@@ -31,7 +31,12 @@ const createBooking = async (payload: TBooking) => {
           `Slot with ID ${slotId} not found`,
         );
       }
-
+      const isSlotBooked = await Booking.findOne({ slots: { $in: slotId } });
+      if (isSlotBooked)
+        throw new AppError(
+          httpStatus.BAD_REQUEST,
+          "this slot id is already exist",
+        );
       return slot;
     }),
   );
@@ -52,8 +57,9 @@ const getAllBookings = async () => {
   return result;
 };
 
-const findMyBooking = async () => {
-  return;
+const findMyBooking = async (id: string) => {
+  const result = await Booking.find({ user: id });
+  return result;
 };
 
 const updateBooking = async (id: string, payload: Partial<TBooking>) => {

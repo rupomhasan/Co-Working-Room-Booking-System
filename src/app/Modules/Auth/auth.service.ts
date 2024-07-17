@@ -33,13 +33,14 @@ const login = async (payload: TLogin) => {
   if (!passwordMatched) throw new Error("Password not matched");
 
   const jwtPayload = {
-    email: user.email,
+    id: user._id,
     role: user.role,
   };
 
   const accessToken = jwt.sign(jwtPayload, config.access_token as string, {
     expiresIn: "1d",
   });
+  user.password = "";
 
   return { accessToken, user };
 };

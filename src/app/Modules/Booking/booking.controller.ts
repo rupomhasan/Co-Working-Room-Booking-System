@@ -27,7 +27,7 @@ const getAllBookings = catchAsync(async (req, res) => {
 });
 
 const findMyBooking = catchAsync(async (req, res) => {
-  const result = await bookingService.findMyBooking();
+  const result = await bookingService.findMyBooking(req.id as string);
 
   sendResponse(res, {
     success: true,
