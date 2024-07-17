@@ -42,7 +42,7 @@
 <ul>
   <li>
     <h3>Register a User</h3>
-    <p><b>Route:</b> /api/auth/signup (POST)</p>
+    <p><br>Route:</br> /api/auth/signup (POST)</p>
   </li>
     <li>
     <h3>Login</h3>
