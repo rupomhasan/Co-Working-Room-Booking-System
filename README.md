@@ -58,3 +58,43 @@
     <p><b>Route : </b>/api/my-bookings(GET)</p>
   </li>
 </ul>
+<h2>Endpoints</h2>
+<h3>User Authentication</h3>
+<ul>
+  <li>POST : /api/auth/singup  - Register a new user</li>
+  <li>POST : /api/auth/login - Login a user</li>
+</ul>
+<h3>Room Management</h3>
+  <ul>
+  <li>POST : /api/rooms - Add a new room</li>
+  <li>GET : /api/rooms - Get all rooms</li>
+  <li>GET : /api/rooms/:id - Get room details</li>
+  <li>PUT : /api/rooms/:id - Update room details</li>
+  <li>DELETE : /api/rooms/:id - Delete a room</li>
+  </ul>
+<h3>Create Slots </h3>
+<ul>
+  <li>Post : /api/slots - Create time slots</li>
+  <li>GET : /api/slots/availability Get available slots</li>
+</ul>
+<h3>Booking Management</h3>
+<ul>
+  <li>POST /api/bookings - Create a new booking</li>
+  <li>GET /api/bookings - Get all bookings for a user</li>
+  <li>/api/my-bookings - Get my-bookings</li>
+  <li>PUT /api/bookings/:id - Update booking details</li>
+  <li>DELETE /api/bookings/:id - Delete a booking</li>
+</ul>
+
+<h2>Techonologies Used</h2>
+<ul>
+<li>Node.js</li>
+<li>Express.js</li>
+  <li>TypeScript</li>
+<li>MongoDB</li>
+<li>Mongoose</li>
+<li>JWT</li>
+<li>Bcrypt</li>
+<li>Zod</li>
+  <li>Eslint</li>
+</ul>
